@@ -19,7 +19,7 @@ class ATGController extends Controller
 
         // Validate the request...
         $this->validate($request,[
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:registration',
             'email' => 'required|string|email|max:255|unique:registration',
             'pincode' => 'required|regex:/\b\d{6}\b/',
         ]);
