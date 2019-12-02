@@ -41,7 +41,7 @@ class ATGController extends Controller
              });
             Session::flash('message', 'Added Successfully and confirmation mail has been sent'); 
             Session::flash('alert-class','alert-danger'); 
-
+             
         }else{
             Session::flash('message', 'Data Not Added'); 
             Session::flash('alert-danger'); 
