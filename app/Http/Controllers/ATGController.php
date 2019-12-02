@@ -39,7 +39,7 @@ class ATGController extends Controller
                    ('Welcome Your email has been registered');
                 $message->from('bhavsarmana7@gmail.com','Manan Bhavsar');
              });
-            Session::flash('message', 'Added Successfully and confirmation has been sent'); 
+            Session::flash('message', 'Added Successfully and confirmation mail has been sent'); 
             Session::flash('alert-class','alert-danger'); 
 
         }else{

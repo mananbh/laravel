@@ -13,5 +13,4 @@
 
 Route::get('/', 'ATGController@index');
 Route::post('/registeruser', 'ATGController@store');
-//Route::get('sendbasicemail','MailController@basic_email');
 
