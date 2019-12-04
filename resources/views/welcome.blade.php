@@ -1,6 +1,5 @@
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
-<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 
 <div class="container">
     <div class="row">

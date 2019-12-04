@@ -13,3 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::get('/', 'WebServicesController@index');
+Route::post('/registeruserapi', 'WebServicesController@store');

@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Traits;
 
 use Illuminate\Http\Request;
 use App\Registration;
 use Session;
 use Illuminate\Support\Facades\Mail;
-use App\Traits\RegisterTraits;
+Use Exception;
+Use Log;
 
-class ATGController extends Controller
+trait RegisterTraits
 {
-    use RegisterTraits;
-    
-    /*  public function index()
+    public function index()
     {
         return view('/welcome');
     }
@@ -20,6 +20,7 @@ class ATGController extends Controller
   
     public function store(Request $request)
     {
+        try{
         $data = array('name'=>"Welcome");
         $email = $request->email;
         // Validate the request...
@@ -40,15 +41,14 @@ class ATGController extends Controller
                    ('Welcome Your email has been registered');
                 $message->from('bhavsarmana7@gmail.com','Manan Bhavsar');
              });
-            Session::flash('message', 'Added Successfully and confirmation mail has been sent'); 
+             Session::flash('message', 'Added Successfully and confirmation mail has been sent'); 
             Session::flash('alert-class','alert-danger'); 
-
-        }else{
-            Session::flash('message', 'Data Not Added'); 
-            Session::flash('alert-danger'); 
-
+            Log::info('success,EMAIL SENT');
+            return response()->json(["Status"=>0,"Email"=>"Sent"],201);
+                }
+         }catch (Exception $e) {
+            Log::error('Unsuccessful,EMAIL NOT SENT');
+            return response()->json(["Status"=>1,"Email"=>"Not Sent"],201);
         }
-      //  return redirect()->back();
-
-    } */
+    }
 }
