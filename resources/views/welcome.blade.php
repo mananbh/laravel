@@ -93,34 +93,30 @@ $(".btn-submit").click(function(e){
     e.stopPropagation(); 
     $.ajaxSetup({
 
-headers: {
-
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-}
-
-});
-    var name = $("#name").val();
-    var email = $("#email").val();
-    var pincode = $("#pincode").val();
-    $.ajax({
-        data: {
-        name:name,
-        email:email,
-        pincode:pincode
-        },
-        type: "POST",
-        url: "/registeruser",
-        success: function (res) {
-                if(res.Status==0){
-                   alert("Data Added successfull")
-                }else  if(res.Status==1) { 
-                    alert("Data not added successfull")
-
-                }
-            },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+         }
         });
-	});
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var pincode = $("#pincode").val();
+            $.ajax({
+                data: {
+                name:name,
+                email:email,
+                pincode:pincode
+                },
+                type: "POST",
+                url: "/registeruser",
+                success: function (res) {
+                    if(res.Status==0){
+                        alert("Data Added successfull")
+                    }else  if(res.Status==1) { 
+                      alert("Data not added successfull")
+                    }
+                },
+            });
+        });
 
 
 </script>
