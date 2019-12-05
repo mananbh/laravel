@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'ATGController@index');
-Route::post('/registeruser', 'ATGController@store');
+Route::get('/', 'WebServicesController@index');
+Route::post('registeruser', 'WebServicesController@store');
 

@@ -35,20 +35,16 @@ trait RegisterTraits
         $Registration->email = $request->email;
         $Registration->pincode = $request->pincode;
         $check = $Registration->save();
-        if($check==1){
-            Mail::send([], $data, function($message)use ($email) {
+       /*      Mail::send([], $data, function($message)use ($email) {
                 $message->to($email, 'Welcome')->subject
                    ('Welcome Your email has been registered');
                 $message->from('bhavsarmana7@gmail.com','Manan Bhavsar');
-             });
-             Session::flash('message', 'Added Successfully and confirmation mail has been sent'); 
-            Session::flash('alert-class','alert-danger'); 
-            Log::info('success,EMAIL SENT');
-            return response()->json(["Status"=>0,"Email"=>"Sent"],201);
-                }
+             }); */
+           return response()->json(["Status"=>0,"Email"=>"Sent"],201);
+                
          }catch (Exception $e) {
             Log::error('Unsuccessful,EMAIL NOT SENT');
-            return response()->json(["Status"=>1,"Email"=>"Not Sent"],201);
+           return response()->json(["Status"=>1,"Email"=>"Not Sent"],201);
         }
     }
 }
